@@ -4,7 +4,7 @@
 # Define the number of master and worker nodes
 # If this number is changed, remember to update setup-hosts.sh script with the new hosts IP details in /etc/hosts of each VM.
 NUM_MASTER_NODE = 1
-NUM_WORKER_NODE = 1
+NUM_WORKER_NODE = 2
 
 IP_NW = "192.168.100."
 MASTER_IP_START = 1
@@ -71,6 +71,7 @@ Vagrant.configure("2") do |config|
 
         node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
         node.vm.provision "install-k8s", type: "shell", :path => "ubuntu/master.sh"
+        node.vm.provision "Update-config", type: "shell", :path => "ubuntu/update-admin-config.sh"
 
       end
   end

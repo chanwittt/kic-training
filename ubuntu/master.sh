@@ -65,10 +65,4 @@ sudo apt-get install -y kubelet kubeadm kubectl &&
 sudo apt-mark hold kubelet kubeadm kubectl &&
 # Create cluster
 echo "---------------------------initial cluster-------------------------------------" &&
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.100.2 &&
-mkdir -p $HOME/.kube &&
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config &&
-sudo chown $(id -u):$(id -g) $HOME/.kube/config &&
-#kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml &&
-kubectl get pod -A
-echo "---------------------------Install Master Node successfully-------------------------------------"
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.100.2
