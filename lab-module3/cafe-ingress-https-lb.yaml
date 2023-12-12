@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: cafe-ingress
   annotations:
-    nginx.org/lb-method: "least_conn"
+    nginx.org/lb-method: "ip_hash"
 spec:
   ingressClassName: nginx
   tls:
