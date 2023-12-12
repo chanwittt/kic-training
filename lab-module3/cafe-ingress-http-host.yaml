@@ -22,3 +22,13 @@ spec:
             name: coffee-svc
             port:
               number: 80
+  - host: webapp.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp-svc
+            port:
+              number: 80
